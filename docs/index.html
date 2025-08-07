@@ -1,12 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Réplica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiRéplica - Réplicas de lujo</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .advertencia {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    .advertencia button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .producto {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+
+    .botones {
+      margin-top: 10px;
+    }
+
+    .botones button, .botones a {
+      background-color: #111;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+  <script>
+    function cerrarAviso() {
+      document.getElementById("aviso").style.display = "none";
+    }
+  </script>
 </head>
 <body>
-  <h1>¡Bienvenido a Mi Réplica!</h1>
-  <p><strong>Aviso:</strong> Todos los productos de esta web son réplicas y no originales.</p>
+  <div class="advertencia" id="aviso">
+    <button onclick="cerrarAviso()">✖</button>
+    <strong>Aviso Legal:</strong> Todos los productos son <u>réplicas</u>. No vendemos productos originales ni hacemos envíos.
+  </div>
+
+  <header>
+    <h1>🕰️ MiRéplica</h1>
+    <p>Tu tienda online de réplicas de lujo sin envíos</p>
+  </header>
+
+  <main class="productos">
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Rolex_Submariner.jpg/800px-Rolex_Submariner.jpg" alt="Réplica Rolex">
+      <h2>Réplica Rolex Submariner</h2>
+      <p>Precio: 59,99€</p>
+      <div class="botones">
+        <button>Comprar</button>
+        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
+      </div>
+    </div>
+
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Audemars_Piguet_Royal_Oak_Chronograph.jpg/800px-Audemars_Piguet_Royal_Oak_Chronograph.jpg" alt="Réplica Audemars">
+      <h2>Réplica Audemars Piguet</h2>
+      <p>Precio: 79,99€</p>
+      <div class="botones">
+        <button>Comprar</button>
+        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
+      </div>
+    </div>
+
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/R%C3%A9plica_Omega_Speedmaster_Moonwatch.jpg/800px-R%C3%A9plica_Omega_Speedmaster_Moonwatch.jpg" alt="Réplica Omega">
+      <h2>Réplica Omega Speedmaster</h2>
+      <p>Precio: 69,99€</p>
+      <div class="botones">
+        <button>Comprar</button>
+        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 MiRéplica. Sitio de réplicas sin envíos. Diseño hecho a mano 🛠️
+  </footer>
 </body>
 </html>
+
