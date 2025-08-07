@@ -1,212 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MiRéplica</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f0f0f0;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mireplica - Réplicas de relojes y riñoneras</title>
+<style>
+  /* Reset básico */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+    min-height: 100vh;
+  }
+  header {
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  nav {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  nav a.active, nav a:hover {
+    background: #f57c00;
+    color: #fff;
+  }
+  main {
+    max-width: 1100px;
+    margin: 20px auto 60px;
+    padding: 0 10px;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 15px;
+  }
+  .item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    padding: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .item:hover {
+    transform: scale(1.05);
+  }
+  .item img {
+    max-width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+  .item h4 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #444;
+  }
+  .btn-contact {
+    display: inline-block;
+    background: #f57c00;
+    color: white;
+    padding: 8px 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .btn-contact:hover {
+    background: #e65a00;
+  }
+  footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  /* Aviso legal */
+  #legalNotice {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #f57c00;
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+  }
+  #legalNotice button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  /* Oculto aviso */
+  .hidden {
+    display: none !important;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      gap: 10px;
     }
-
-    /* Bienvenida */
-    #welcome {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 24px;
-      animation: fadeOut 3s forwards 3s;
+    .item img {
+      height: 110px;
     }
-
-    @keyframes fadeOut {
-      to { opacity: 0; height: 0; padding: 0; overflow: hidden; }
-    }
-
-    /* Navbar */
-    .navbar {
-      background-color: #222;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-    }
-
-    .navbar a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .navbar a:hover {
-      background-color: #444;
-    }
-
-    /* Productos */
-    .section {
-      display: none;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .active {
-      display: block;
-    }
-
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .product {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      width: 200px;
-      padding: 10px;
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .product button {
-      margin-top: 10px;
-      padding: 8px 12px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .product button:hover {
-      background-color: #0056b3;
-    }
-
-    /* Aviso legal */
-    #aviso {
-      background-color: #ffdd57;
-      padding: 10px;
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
-    #aviso button {
-      margin-left: 10px;
-      background: red;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    @media screen and (max-width: 600px) {
-      .product-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-<div id="welcome">Bienvenido a MiRéplica</div>
-
-<div class="navbar">
-  <a onclick="showSection('watches')">Watches</a>
-  <a onclick="showSection('bags')">Waist Bags</a>
+<!-- Aviso legal visible -->
+<div id="legalNotice">
+  ⚠️ Aviso importante: Todos los productos son réplicas o inspiraciones, no originales.  
+  <button aria-label="Cerrar aviso" onclick="document.getElementById('legalNotice').classList.add('hidden')">&times;</button>
 </div>
 
-<!-- Watches -->
-<div id="watches" class="section active">
-  <h2>Luxury Watches</h2>
-  <div class="product-grid">
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Rolex_GMT-Master_II.jpg/600px-Rolex_GMT-Master_II.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Rolex_Datejust.jpg/600px-Rolex_Datejust.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Rolex_Submariner.jpg/600px-Rolex_Submariner.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rolex_Oyster.jpg/600px-Rolex_Oyster.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Rolex_Yacht-Master.jpg/600px-Rolex_Yacht-Master.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Rolex_President.jpg/600px-Rolex_President.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-  </div>
-</div>
+<header>Mireplica</header>
 
-<!-- Waist Bags -->
-<div id="bags" class="section">
-  <h2>Designer Waist Bags</h2>
-  <div class="product-grid">
-    <div class="product">
-      <img src="https://i.pinimg.com/originals/df/b9/b2/dfb9b2632f8c5e8db1f9f4a1e8e89323.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://images.stockx.com/images/Supreme-Waist-Bag-SS18-Red.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://cdn-images.farfetch-contents.com/17/38/79/78/17387978_37438706_1000.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0094/2252/products/gucci-waistbag-1.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://cdn.shopify.com/s/files/1/0355/8296/5941/products/Jordan-Bag.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-    <div class="product">
-      <img src="https://i.ebayimg.com/images/g/VDkAAOSwBTVj3xzD/s-l1600.jpg">
-      <button onclick="contact()">Contactar para comprar</button>
-    </div>
-  </div>
-</div>
+<nav>
+  <a href="#" id="nav-watches" class="active" onclick="showCategory('watches')">Watches</a>
+  <a href="#" id="nav-fannypacks" onclick="showCategory('fannypacks')">Fanny Packs</a>
+</nav>
 
-<!-- Aviso Legal -->
-<div id="aviso">
-  Aviso: Todos los productos son réplicas. <button onclick="cerrarAviso()">✖</button>
-</div>
+<main>
+  <!-- Categoría relojes -->
+  <section id="watches" class="gallery">
+    <div class="item">
+      <img src="https://i.postimg.cc/7YPscV0D/reloj1.jpg" alt="Reloj clásico negro" />
+      <h4>Classic Black Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Classic%20Black%20Watch">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/8kFx8rvM/reloj2.jpg" alt="Reloj deportivo azul" />
+      <h4>Sporty Blue Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Sporty%20Blue%20Watch">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/KvFkF5H6/reloj3.jpg" alt="Reloj elegante plateado" />
+      <h4>Elegant Silver Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Elegant%20Silver%20Watch">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/25F4Qvxn/reloj4.jpg" alt="Reloj moderno negro" />
+      <h4>Modern Black Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Modern%20Black%20Watch">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/4dZzJYfY/reloj5.jpg" alt="Reloj clásico marrón" />
+      <h4>Classic Brown Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Classic%20Brown%20Watch">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/2yBxTp0z/reloj6.jpg" alt="Reloj deportivo blanco" />
+      <h4>Sporty White Watch</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Sporty%20White%20Watch">Contactar para comprar</a>
+    </div>
+  </section>
 
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-
-  function cerrarAviso() {
-    document.getElementById('aviso').style.display = 'none';
-  }
-
-  function contact() {
-    window.location.href = "mailto:laurensholm@gmail.com";
-  }
-</script>
-
-</body>
-</html>
+  <!-- Categoría riñoneras -->
+  <section id="fannypacks" class="gallery" style="display:none;">
+    <div class="item">
+      <img src="https://i.postimg.cc/1zGmg1JK/fanny1.jpg" alt="Riñonera estilo Gucci negra" />
+      <h4>Gucci Style Black Fanny Pack</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Gucci%20Style%20Black%20Fanny%20Pack">Contactar para comprar</a>
+    </div>
+    <div class="item">
+      <img src="https://i.postimg.cc/ZYX8D6Lp/fanny2.jpg" alt="Riñonera estilo Jordan roja" />
+      <h4>Jordan Style Red Fanny Pack</h4>
+      <a class="btn-contact" href="mailto:laurensholm@gmail.com?subject=Interesado%20en%20Jordan%20Style%20Red%20Fanny%20Pack">Contactar para comprar</
 
