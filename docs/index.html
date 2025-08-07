@@ -1,144 +1,212 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiRéplica - Réplicas de lujo</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiRéplica</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
-      padding: 0;
+      background: #f0f0f0;
     }
 
-    header {
+    /* Bienvenida */
+    #welcome {
       background-color: #111;
       color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      animation: fadeOut 3s forwards 3s;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; height: 0; padding: 0; overflow: hidden; }
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #222;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      background-color: #444;
+    }
+
+    /* Productos */
+    .section {
+      display: none;
       padding: 20px;
       text-align: center;
     }
 
-    .advertencia {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      color: white;
-      padding: 30px;
-      text-align: center;
-      z-index: 9999;
+    .active {
+      display: block;
     }
 
-    .advertencia button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 200px;
+      padding: 10px;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Aviso legal */
+    #aviso {
+      background-color: #ffdd57;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #aviso button {
+      margin-left: 10px;
       background: red;
       color: white;
       border: none;
-      font-size: 18px;
       padding: 5px 10px;
       cursor: pointer;
     }
 
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .producto {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-    }
-
-    .producto img {
-      max-width: 100%;
-      border-radius: 6px;
-    }
-
-    .botones {
-      margin-top: 10px;
-    }
-
-    .botones button, .botones a {
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+    @media screen and (max-width: 600px) {
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
-  <script>
-    function cerrarAviso() {
-      document.getElementById("aviso").style.display = "none";
-    }
-  </script>
 </head>
 <body>
-  <div class="advertencia" id="aviso">
-    <button onclick="cerrarAviso()">✖</button>
-    <strong>Aviso Legal:</strong> Todos los productos son <u>réplicas</u>. No vendemos productos originales ni hacemos envíos.
+
+<div id="welcome">Bienvenido a MiRéplica</div>
+
+<div class="navbar">
+  <a onclick="showSection('watches')">Watches</a>
+  <a onclick="showSection('bags')">Waist Bags</a>
+</div>
+
+<!-- Watches -->
+<div id="watches" class="section active">
+  <h2>Luxury Watches</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Rolex_GMT-Master_II.jpg/600px-Rolex_GMT-Master_II.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Rolex_Datejust.jpg/600px-Rolex_Datejust.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Rolex_Submariner.jpg/600px-Rolex_Submariner.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rolex_Oyster.jpg/600px-Rolex_Oyster.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Rolex_Yacht-Master.jpg/600px-Rolex_Yacht-Master.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Rolex_President.jpg/600px-Rolex_President.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
   </div>
+</div>
 
-  <header>
-    <h1>🕰️ MiRéplica</h1>
-    <p>Tu tienda online de réplicas de lujo sin envíos</p>
-  </header>
-
-  <main class="productos">
-    <div class="producto">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Rolex_Submariner.jpg/800px-Rolex_Submariner.jpg" alt="Réplica Rolex">
-      <h2>Réplica Rolex Submariner</h2>
-      <p>Precio: 59,99€</p>
-      <div class="botones">
-        <button>Comprar</button>
-        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
-      </div>
+<!-- Waist Bags -->
+<div id="bags" class="section">
+  <h2>Designer Waist Bags</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="https://i.pinimg.com/originals/df/b9/b2/dfb9b2632f8c5e8db1f9f4a1e8e89323.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
     </div>
-
-    <div class="producto">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Audemars_Piguet_Royal_Oak_Chronograph.jpg/800px-Audemars_Piguet_Royal_Oak_Chronograph.jpg" alt="Réplica Audemars">
-      <h2>Réplica Audemars Piguet</h2>
-      <p>Precio: 79,99€</p>
-      <div class="botones">
-        <button>Comprar</button>
-        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
-      </div>
+    <div class="product">
+      <img src="https://images.stockx.com/images/Supreme-Waist-Bag-SS18-Red.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
     </div>
-
-    <div class="producto">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/R%C3%A9plica_Omega_Speedmaster_Moonwatch.jpg/800px-R%C3%A9plica_Omega_Speedmaster_Moonwatch.jpg" alt="Réplica Omega">
-      <h2>Réplica Omega Speedmaster</h2>
-      <p>Precio: 69,99€</p>
-      <div class="botones">
-        <button>Comprar</button>
-        <a href="mailto:laurensholm@gmail.com">📧 Contactar</a>
-      </div>
+    <div class="product">
+      <img src="https://cdn-images.farfetch-contents.com/17/38/79/78/17387978_37438706_1000.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
     </div>
-  </main>
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0094/2252/products/gucci-waistbag-1.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.shopify.com/s/files/1/0355/8296/5941/products/Jordan-Bag.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+    <div class="product">
+      <img src="https://i.ebayimg.com/images/g/VDkAAOSwBTVj3xzD/s-l1600.jpg">
+      <button onclick="contact()">Contactar para comprar</button>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    © 2025 MiRéplica. Sitio de réplicas sin envíos. Diseño hecho a mano 🛠️
-  </footer>
+<!-- Aviso Legal -->
+<div id="aviso">
+  Aviso: Todos los productos son réplicas. <button onclick="cerrarAviso()">✖</button>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function cerrarAviso() {
+    document.getElementById('aviso').style.display = 'none';
+  }
+
+  function contact() {
+    window.location.href = "mailto:laurensholm@gmail.com";
+  }
+</script>
+
 </body>
 </html>
 
