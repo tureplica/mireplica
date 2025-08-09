@@ -1,118 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Réplica</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Réplica</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap');
 
-        header {
-            padding: 20px;
-            font-size: 28px;
-            font-weight: bold;
-        }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: url('fondo-lujo.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
 
-        .producto {
-            display: inline-block;
-            margin: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 10px;
-            border-radius: 10px;
-        }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid gold;
+    }
 
-        .producto img {
-            max-width: 250px;
-            border-radius: 10px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+      font-family: 'Playfair Display', serif;
+      color: gold;
+    }
 
-        .frases {
-            font-size: 24px;
-            font-weight: bold;
-            animation: cambioTexto 6s infinite;
-        }
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      text-align: center;
+    }
 
-        @keyframes cambioTexto {
-            0% { content: "PRECIO BAJO"; }
-            33% { content: "BUENA CALIDAD"; }
-            66% { content: "ESTÉTICO"; }
-        }
+    nav a {
+      color: gold;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-        footer {
-            background: rgba(0,0,0,0.7);
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+    nav a:hover {
+      color: white;
+      text-shadow: 0 0 10px gold;
+    }
 
-        #avisoLegal {
-            position: fixed;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            color: white;
-            font-size: 14px;
-        }
+    .frases {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: gold;
+      animation: cambiarFrase 12s infinite;
+    }
 
-        #cerrarAviso {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            cursor: pointer;
-            color: red;
-            font-size: 18px;
-        }
+    @keyframes cambiarFrase {
+      0%, 20% { content: "PRECIO BAJO"; }
+      25%, 45% { content: "BUENA CALIDAD"; }
+      50%, 70% { content: "ESTÉTICO"; }
+      75%, 95% { content: "ENVÍO RÁPIDO"; }
+    }
 
-        .boton-gmail {
-            background: red;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: white;
-        }
-    </style>
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .producto {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 200px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px gold;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .producto button {
+      margin-top: 10px;
+      padding: 8px;
+      width: 100%;
+      background-color: gold;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid gold;
+    }
+
+    .legal-links a {
+      color: lightgray;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>Mi Réplica</header>
 
-    <div class="frases">PRECIO BAJO</div>
+  <header>
+    <h1>Mi Réplica</h1>
+  </header>
 
+  <nav>
+    <a href="#relojes">Relojes</a>
+    <a href="#rinoneras">Riñoneras</a>
+  </nav>
+
+  <div class="frases" id="frase-animada">PRECIO BAJO</div>
+
+  <!-- Galería Relojes -->
+  <section id="relojes" class="galeria">
     <div class="producto">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Rolex_Gold.jpg" alt="Reloj Dorado">
-        <p>Reloj Dorado de Lujo</p>
+      <img src="https://i.imgur.com/0DElr0H.jpeg" alt="Reloj 1">
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Comprar ahora</button>
     </div>
-
-    <p>📦 Envíos disponibles a todo el país</p>
-    <a class="boton-gmail" href="mailto:pescadito.kebap64@gmail.com">📧 Contactar por Gmail</a>
-
-    <footer>© 2025 Mi Réplica</footer>
-
-    <div id="avisoLegal">
-        <span id="cerrarAviso">❌</span>
-        <h3>Aviso de Privacidad y Términos</h3>
-        <p>Esta web vende réplicas de productos, no originales. Todos los nombres y marcas pertenecen a sus dueños. 
-        Al comprar, aceptas nuestras condiciones de uso, política de privacidad y devoluciones.</p>
-        <p>La política de privacidad explica cómo tratamos tus datos y tu seguridad al usar esta web.</p>
-        <p>Los términos de uso incluyen limitaciones de responsabilidad, derechos de autor y garantías aplicables.</p>
+    <div class="producto">
+      <img src="https://i.imgur.com/0DElr0H.jpeg" alt="Reloj 2">
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Comprar ahora</button>
     </div>
+  </section>
 
-    <script>
-        document.getElementById('cerrarAviso').addEventListener('click', function(){
-            document.getElementById('avisoLegal').style.display = 'none';
-        });
-    </script>
+  <!-- Galería Riñoneras -->
+  <section id="rinoneras" class="galeria">
+    <div class="producto">
+      <img src="https://i.imgur.com/5rVQwIp.jpeg" alt="Riñonera 1">
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Comprar ahora</button>
+    </div>
+    <div class="producto">
+      <img src="https://i.imgur.com/5rVQwIp.jpeg" alt="Riñonera 2">
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Comprar ahora</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>Esta es una tienda de réplicas. No vendemos productos originales de marcas registradas.</p>
+    <div class="legal-links">
+      <a href="#">Aviso legal</a> |
+      <a href="#">Política de privacidad</a> |
+      <a href="#">Condiciones de uso</a>
+    </div>
+  </footer>
+
+  <script>
+    const frases = ["PRECIO BAJO", "BUENA CALIDAD", "ESTÉTICO", "ENVÍO RÁPIDO", "OFERTAS LIMITADAS"];
+    let index = 0;
+    const fraseElement = document.getElementById("frase-animada");
+
+    setInterval(() => {
+      index = (index + 1) % frases.length;
+      fraseElement.textContent = frases[index];
+    }, 2000);
+  </script>
+
 </body>
 </html>
+
+
 
 
 
