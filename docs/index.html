@@ -1,279 +1,155 @@
 <!DOCTYPE html>
-<html lang="en"><style>
-  body {
-    background-image: url('fondo.png'); /* Nombre exacto del archivo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white; /* Para que el texto se vea bien */
-  }
-
-  /* Fondo oscuro semitransparente para mejorar la lectura */
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-  }
-</style
-
+<html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>mireplica - Affordable Replicas</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background: #f9f9f9;
-    color: #333;
-  }
-  header {
-    background: #222;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  nav a.active {
-    text-decoration: underline;
-  }
-  #welcome-msg {
-    background: #0a74da;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-    animation: fadeOut 3s forwards;
-  }
-  @keyframes fadeOut {
-    0% {opacity:1;}
-    100% {opacity:0; display:none;}
-  }
-  #notice {
-    background: #fff3cd;
-    color: #856404;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-  }
-  main {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
-  .category {
-    display: none;
-  }
-  .category.active {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-    gap: 15px;
-  }
-  .product {
-    background: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-    text-align: center;
-  }
-  .product img {
-    max-width: 100%;
-    border-radius: 6px;
-  }
-  .product p {
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  .contact-btn {
-    background: #0a74da;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-  }
-  footer {
-    background: #222;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    font-size: 14px;
-    margin-top: 40px;
-  }
-  footer a {
-    color: #0a74da;
-    text-decoration: none;
-  }
-  #legal {
-    margin-top: 15px;
-    font-size: 12px;
-    color: #555;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Réplica</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('A_digital_image_features_United_States_one_hundred.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .mensaje-bienvenida {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 10px;
+      animation: desaparecer 3s forwards;
+    }
+
+    @keyframes desaparecer {
+      0% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .producto {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 200px;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .producto button {
+      margin-top: 10px;
+      padding: 8px;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .legal-links a {
+      color: lightgray;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+  </style>
 </head>
 <body>
 
-<div id="welcome-msg">Welcome to mireplica! All products are replicas.</div>
+  <header>
+    <h1>Mi Réplica</h1>
+  </header>
 
-<header>
-  <h1>mireplica</h1>
   <nav>
-    <a href="#" id="nav-watches" class="active">Watches</a>
-    <a href="#" id="nav-bags">Waist Bags</a>
+    <a href="#relojes">Watches</a>
+    <a href="#rinoneras">Waist Bags</a>
   </nav>
-</header>
 
-<div id="notice">
-  <p><strong>Important:</strong> All products sold here are replicas/imitations and NOT original branded items.</p>
-</div>
+  <div class="mensaje-bienvenida">
+    Bienvenido a Mi Réplica - Productos de lujo inspirados en las grandes marcas
+  </div>
 
-<main>
-  <section id="watches" class="category active">
-    <div class="product">
-      <img src="https://i.imgur.com/D3aLFmh.jpg" alt="Luxury Style Watch 1" />
-      <p>Classic Luxury Style Watch</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
+  <!-- Relojes -->
+  <section id="relojes" class="galeria">
+    <div class="producto">
+      <img src="https://i.imgur.com/0DElr0H.jpeg" alt="Reloj 1" />
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Contactar para comprar</button>
     </div>
-    <div class="product">
-      <img src="https://i.imgur.com/EK5DhqB.jpg" alt="Sport Watch Replica" />
-      <p>Sport Watch Replica</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
+    <div class="producto">
+      <img src="https://i.imgur.com/0DElr0H.jpeg" alt="Reloj 2" />
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Contactar para comprar</button>
     </div>
-    <div class="product">
-      <img src="https://i.imgur.com/RJ7zOvl.jpg" alt="Elegant Watch Replica" />
-      <p>Elegant Watch Replica</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/z4DjDwX.jpg" alt="Modern Watch Replica" />
-      <p>Modern Watch Replica</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/OjpaNO3.jpg" alt="Casual Watch Replica" />
-      <p>Casual Watch Replica</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/nMvQOHR.jpg" alt="Fashion Watch Replica" />
-      <p>Fashion Watch Replica</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Watch" class="contact-btn">Contact to Buy</a>
-    </div>
+    <!-- Añade más relojes si quieres -->
   </section>
 
-  <section id="bags" class="category">
-    <div class="product">
-      <img src="https://i.imgur.com/sP0sCgu.jpg" alt="Stylish Waist Bag 1" />
-      <p>Stylish Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
+  <!-- Riñoneras -->
+  <section id="rinoneras" class="galeria">
+    <div class="producto">
+      <img src="https://i.imgur.com/5rVQwIp.jpeg" alt="Riñonera 1" />
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Contactar para comprar</button>
     </div>
-    <div class="product">
-      <img src="https://i.imgur.com/I5GQvOp.jpg" alt="Sporty Waist Bag" />
-      <p>Sporty Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
+    <div class="producto">
+      <img src="https://i.imgur.com/5rVQwIp.jpeg" alt="Riñonera 2" />
+      <button onclick="window.location.href='mailto:laurensholm@gmail.com'">Contactar para comprar</button>
     </div>
-    <div class="product">
-      <img src="https://i.imgur.com/U8TrHlX.jpg" alt="Casual Waist Bag" />
-      <p>Casual Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/mOqde2U.jpg" alt="Fashion Waist Bag" />
-      <p>Fashion Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/fLkT9gY.jpg" alt="Compact Waist Bag" />
-      <p>Compact Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
-    </div>
-    <div class="product">
-      <img src="https://i.imgur.com/QnYjl5t.jpg" alt="Urban Waist Bag" />
-      <p>Urban Waist Bag</p>
-      <a href="mailto:laurensholm@gmail.com?subject=Inquiry about Waist Bag" class="contact-btn">Contact to Buy</a>
-    </div>
+    <!-- Añade más riñoneras si quieres -->
   </section>
-</main>
 
-<footer>
-  <p>© 2025 mireplica. All products are replicas and NOT original branded items.</p>
-  <p id="legal">
-    This website does not sell original products. All trademarks, logos, and brand names used for identification purposes only.  
-    <br />
-    <a href="#privacy" onclick="showPrivacy()">Privacy Policy</a> | <a href="#terms" onclick="showTerms()">Terms & Conditions</a>  
-  </p>
-</footer>
-
-<!-- Privacy and Terms modals -->
-<div id="privacyModal" style="display:none; position:fixed; top:10%; left:10%; width:80%; height:70%; background:#fff; box-shadow: 0 0 10px rgba(0,0,0,.5); padding:20px; overflow-y:auto; z-index:1000;">
-  <h2>Privacy Policy</h2>
-  <p>Your privacy is important. We do not collect personal data except when you contact us by email. We do not share your data with third parties.</p>
-  <button onclick="closePrivacy()" style="margin-top:10px;">Close</button>
-</div>
-
-<div id="termsModal" style="display:none; position:fixed; top:10%; left:10%; width:80%; height:70%; background:#fff; box-shadow: 0 0 10px rgba(0,0,0,.5); padding:20px; overflow-y:auto; z-index:1000;">
-  <h2>Terms & Conditions</h2>
-  <p>All products are replicas. We do not guarantee original quality or authenticity. Purchases are final. Contact us before buying.</p>
-  <button onclick="closeTerms()" style="margin-top:10px;">Close</button>
-</div>
-
-<script>
-  // Navigation functionality
-  const watchesLink = document.getElementById('nav-watches');
-  const bagsLink = document.getElementById('nav-bags');
-  const watchesSection = document.getElementById('watches');
-  const bagsSection = document.getElementById('bags');
-
-  watchesLink.addEventListener('click', e => {
-    e.preventDefault();
-    watchesSection.classList.add('active');
-    bagsSection.classList.remove('active');
-    watchesLink.classList.add('active');
-    bagsLink.classList.remove('active');
-  });
-
-  bagsLink.addEventListener('click', e => {
-    e.preventDefault();
-    bagsSection.classList.add('active');
-    watchesSection.classList.remove('active');
-    bagsLink.classList.add('active');
-    watchesLink.classList.remove('active');
-  });
-
-  // Privacy modal functions
-  function showPrivacy() {
-    document.getElementById('privacyModal').style.display = 'block';
-  }
-  function closePrivacy() {
-    document.getElementById('privacyModal').style.display = 'none';
-  }
-
-  // Terms modal functions
-  function showTerms() {
-    document.getElementById('termsModal').style.display = 'block';
-  }
-  function closeTerms() {
-    document.getElementById('termsModal').style.display = 'none';
-  }
-</script>
+  <footer>
+    <p>Esta es una tienda de réplicas. No vendemos productos originales de marcas registradas.</p>
+    <div class="legal-links">
+      <a href="#">Aviso legal</a> |
+      <a href="#">Política de privacidad</a> |
+      <a href="#">Condiciones de uso</a>
+    </div>
+  </footer>
 
 </body>
 </html>
+
 
 
