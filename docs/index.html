@@ -57,14 +57,6 @@
       font-weight: bold;
       margin: 20px 0;
       color: gold;
-      animation: cambiarFrase 12s infinite;
-    }
-
-    @keyframes cambiarFrase {
-      0%, 20% { content: "PRECIO BAJO"; }
-      25%, 45% { content: "BUENA CALIDAD"; }
-      50%, 70% { content: "ESTÉTICO"; }
-      75%, 95% { content: "ENVÍO RÁPIDO"; }
     }
 
     .galeria {
@@ -107,17 +99,32 @@
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.9);
-      padding: 20px;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 30px;
       text-align: center;
       font-size: 14px;
       border-top: 2px solid gold;
+    }
+
+    .legal-links {
+      margin-top: 10px;
     }
 
     .legal-links a {
       color: lightgray;
       text-decoration: underline;
       margin: 0 10px;
+    }
+
+    .legal-text {
+      text-align: justify;
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
@@ -165,6 +172,24 @@
       <a href="#">Política de privacidad</a> |
       <a href="#">Condiciones de uso</a>
     </div>
+    <div class="legal-text">
+      <p>
+        Al utilizar este sitio web, usted acepta cumplir con nuestros términos y condiciones. Nos reservamos el derecho de modificar estos términos en cualquier momento sin previo aviso. 
+        Toda la información proporcionada en este sitio es únicamente para fines informativos y no constituye asesoramiento legal, financiero ni profesional.
+      </p>
+      <p>
+        Nos comprometemos a proteger la privacidad de nuestros clientes. La información personal que usted nos proporcione será tratada de acuerdo con nuestras políticas de privacidad 
+        y no será compartida con terceros salvo en los casos requeridos por ley. Al realizar una compra, usted autoriza el tratamiento de sus datos con el fin de procesar su pedido.
+      </p>
+      <p>
+        Este sitio utiliza cookies y tecnologías similares para mejorar la experiencia del usuario y analizar el tráfico web. Puede gestionar sus preferencias de cookies 
+        en cualquier momento a través de la configuración de su navegador.
+      </p>
+      <p>
+        Todo el contenido de este sitio, incluyendo imágenes, textos y logotipos, es propiedad de sus respectivos dueños y se utiliza únicamente con fines ilustrativos. 
+        No reclamamos la titularidad de ninguna marca registrada mencionada.
+      </p>
+    </div>
   </footer>
 
   <script>
@@ -180,6 +205,7 @@
 
 </body>
 </html>
+
 
 
 
