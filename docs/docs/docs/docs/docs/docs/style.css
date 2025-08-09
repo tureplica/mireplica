@@ -1,54 +1,56 @@
+/* ===== Estilo general ===== */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f8f8f8;
-  color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: black url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
 }
 
+/* ===== Encabezado ===== */
 header {
-  background-color: #222;
-  color: white;
-  padding: 1rem;
-  text-align: center;
+    padding: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.aviso {
-  font-size: 0.9rem;
-  color: #ffcc00;
+/* ===== Frases animadas ===== */
+.frase {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    animation: aparecer 2s ease-in-out infinite alternate;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  flex-wrap: wrap;
-  gap: 2rem;
+@keyframes aparecer {
+    0% { opacity: 0.3; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-.producto {
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 200px;
-  text-align: center;
+/* ===== Botones ===== */
+button, .btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.producto img {
-  max-width: 100%;
-  border-radius: 6px;
+button:hover, .btn:hover {
+    background-color: white;
+    transform: scale(1.05);
 }
 
-.precio {
-  color: green;
-  font-weight: bold;
-}
-
+/* ===== Footer ===== */
 footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
 }
